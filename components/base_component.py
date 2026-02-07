@@ -1,8 +1,8 @@
 from playwright.sync_api import expect
 
 class BaseComponent:
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, page):
+        self.page = page
 
     def is_visible(self):
-        return expect(self.driver).to_be_visible()
+        return expect(self.page).to_be_visible()

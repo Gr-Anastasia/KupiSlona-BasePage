@@ -3,13 +3,13 @@ from control.input_count import InputCount
 
 
 class CartProduct(BaseComponent):
-    def __init__(self, driver, title):
-        super().__init__(driver)
-        self.driver = driver
+    def __init__(self, page, title):
+        super().__init__(page)
+        self.page = page
         self.title = title
 
     def wrapper(self):
-        return self.driver.locator(f'//a[contains(text(), "{self.title}")]/ancestor::li')
+        return self.page.locator(f'//a[contains(text(), "{self.title}")]/ancestor::li')
 
     def input_count(self):
         return InputCount(self.wrapper())
